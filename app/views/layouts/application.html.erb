@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Foodchella</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header collapse navbar-collapse">
+            <a class="navbar-brand" href="/">Foodchella</a>
+        </div>
+        <div class="navbar-header navbar-right collapse navbar-collapse">
+        	<a href="/users/new">
+          	<p class="navbar-text collapse navbar-collapse">
+            	<% if !current_user %>
+        				login or sign up!
+        			<% end %>
+      			</p>
+        	</a>
+            <a href="/users/new">
+            	<p class="navbar-text collapse navbar-collapse">
+	            	<% if current_user %>
+	            	Welcome, <%= current_user.first_name%>
+	            	<% end %>
+	                <% if current_user %><%= image_tag current_user.image, {height: 50} %><%end%>
+                </p>
+            </a>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
