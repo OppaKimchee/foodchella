@@ -25,12 +25,17 @@ label{
   display: block
 }
 .m-center{
-  display: inline-block;
-  margin: 0 auto;
+  display: inline-block !important;
+}
+
+.l-center{
+  margin: 0 auto !important;
 }
 
 .image-container {
   display: inline-block;
+  width:300px;
+  height: 300px;
 }
 
 .image-container > img {
