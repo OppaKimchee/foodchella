@@ -2,11 +2,17 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @post = Post.new
   end
 
   def show
     @post = Post.find(params[:id])
+    if params[:random]
+      redirect_to cat_path(Post.all.sample)
+    end
+  end
+
+  def new
+    @post = Post.new
   end
 
   def create

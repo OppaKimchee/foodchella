@@ -1,0 +1,23 @@
+<h1 class="text-center">New Posts</h1>
+<p class="text-center" id="notice"><strong><%= notice %></strong></p>
+<%= form_for @post, url: posts_path, html: { multipart: true } do |post| %>
+  <% if @post.errors.any? %>
+    <div class="error_messages text-center">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @post.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field text-center">
+    <%= post.label :image %>
+    <%= post.file_field :image, class: "m-center"%>
+  </div>
+  <div class="field text-center">
+    <%= post.label :description %>
+    <%= post.text_field :description,placeholder: "ex. name of food, restraunt, location etc...",size: 60 %>
+  </div>
+  <div class="actions text-center"><%= post.submit 'Post', class: 'btn btn-info', disabled: !current_user %>
+<% end %>

@@ -1,7 +1,7 @@
-<h1>Sign Up</h1>
+<h1 class="text-center">Sign Up</h1>
 <%= form_for @user, url: users_path, html: { multipart: true } do |user| %>
   <% if @user.errors.any? %>
-    <div class="error_messages">
+    <div class="error_messages text-center">
       <h2>Form is invalid</h2>
       <ul>
         <% for message in @user.errors.full_messages %>
@@ -10,29 +10,29 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="field text-center">
     <%= user.label :first_name %>
     <%= user.text_field :first_name %>
   </div>
-  <div class="field">
+  <div class="field text-center">
     <%= user.label :last_name %>
     <%= user.text_field :last_name %>
   </div>
-  <div class="field">
+  <div class="field text-center">
     <%= user.label :email %>
     <%= user.text_field :email %>
   </div>
-  <div class="field">
+  <div class="field text-center">
     <%= user.label :password %>
     <%= user.password_field :password %>
   </div>
-  <div class="field">
+  <div class="field text-center">
     <%= user.label :password_confirmation %>
     <%= user.password_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= user.label :Avatar %>
-    <%= user.file_field :image %>
+  <div class="field text-center">
+    <%= user.label :profile_picture, class: "block-left" %>
+    <%= user.file_field :image, class: "m-center"%>
   </div>
-  <div class="actions"><%= user.submit %></div>
+  <div class="actions text-center"><%= submit_tag "Sign Up!",class: 'btn btn-info'%></div>
 <% end %>

@@ -1,34 +1,15 @@
-<h1>New Posts</h1>
-<p id="notice"><%= notice %></p>
-<%= form_for @post, url: posts_path, html: { multipart: true } do |post| %>
-  <% if @post.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @post.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= post.label :image %>
-    <%= post.file_field :image %>
-  </div>
-  <div class="field">
-    <%= post.label :description %>
-    <%= post.text_field :description,placeholder: "ex. name of food, restraunt, location etc...",size: 60 %>
-  </div>
-  <%= post.submit 'Post', class: 'btn btn-info', disabled: !current_user %>
-<% end %>
-
-<h1>Posts</h1>
-<ul>
+<h1 class="text-center">Top Posts</h1>
+<ul class="text-center">
 	<% @posts.each do |post| %>
-		<%= image_tag post.image.url %><br>
-		<%= post.description %><br>
-		Posted on <%= post.created_at.strftime("%B %d, %Y @ %I:%M:%S %p") %><br><br>
-		<%= link_to 'View post', post_path(post) %>
+	<div class="container-fluid">
+		<div class="col-xs-6" style="background:yellow">
+			<%= link_to image_tag(post.image.url), post_path(post), class: "image-container"%><br>
+			<span class="pull-left"><%= post.user.email %></span>
+			<span class="pull-right"><%= link_to raw("<span class='glyphicon glyphicon-heart'></span>"), post_votes_path(post), method: :post %><%= post.votes.count %></span><br>
+			<%= post.description %><br>
+			Posted on <%= post.created_at.strftime("%B %d, %Y @ %I:%M:%S %p") %><br><br>
+		</div>
+	</div>
 	<% end %>
 </ul>
 
