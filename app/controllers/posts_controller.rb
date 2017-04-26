@@ -1,14 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC')
   end
 
   def show
     @post = Post.find(params[:id])
-    if params[:random]
-      redirect_to cat_path(Post.all.sample)
-    end
   end
 
   def new
@@ -24,6 +21,11 @@ class PostsController < ApplicationController
     else
       flash[:notice] = "Error Post not created!"
     end
+  end
+
+  def random
+    post = Post.all.sample
+    redirect_to post_path(post)
   end
 
   private

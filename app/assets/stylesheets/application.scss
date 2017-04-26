@@ -32,6 +32,23 @@ label{
   margin: 0 auto !important;
 }
 
+
+#show {
+  .image-container {
+    width: 100%;
+    height: 100%;
+  }
+  .col-sm-5{
+    float: none;
+    margin: 0 auto !important;
+    text-align: center;
+  }
+}
+.nav{
+  padding-right:20px;
+}
+
+
 .image-container {
   display: inline-block;
   width:300px;
@@ -47,30 +64,29 @@ label{
   color:red;
 }
 
-@media (max-width: 2500px){
+.img-hover {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
 
-  .navbar-header {
-      float: none;
-  }
-  .navbar-toggle {
-      display: block;
-  }
-  .navbar-collapse {
-      border-top: 1px solid transparent;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .navbar-collapse.collapse {
-      display: none!important;
-  }
-  .navbar-nav {
-      float: none!important;
-      margin: 7.5px -15px;
-  }
-  .navbar-nav>li {
-      float: none;
-  }
-  .navbar-nav>li>a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.image-container:hover .img-hover{
+  opacity: 0.3;
+}
+
+.image-container:hover .middle {
+  opacity: 1;
 }
