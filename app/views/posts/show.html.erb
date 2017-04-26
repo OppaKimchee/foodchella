@@ -3,8 +3,8 @@
 		<div class="col-sm-5">
 			<div class="image-container">
 				<%= image_tag @post.image.url %><br>
-				<span class="pull-left"><%= @post.user.email %></span>
-				<span class="pull-right"><%= link_to raw("<span class='glyphicon glyphicon-heart'></span>"), post_votes_path(@post), method: :post %><%= @post.votes.count %></span><br>
+				<span class="pull-left">Posted by: <%= @post.user.email %></span>
+				<span class="pull-right"><%= link_to raw("<span class='glyphicon glyphicon-thumbs-up'></span>"), post_votes_path(@post), method: :post %> <span class='glyphicon glyphicon-heart'></span><%= @post.votes.count %></span><br>
 				<%= @post.description %>
 			</div>
 		</div>

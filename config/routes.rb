@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "posts#index"
   get "posts/random", to: "posts#random", as: :random
+  get "/profile", to: "users#edit", as: :profile
+  get "posts/all", to: "posts#all", as: :all
   resources :users
   resources :posts do
     resources :votes, shallow: true, only: [:create]

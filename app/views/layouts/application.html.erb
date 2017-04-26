@@ -20,30 +20,19 @@
         </ul>
         <%else%>
           <div class="nav navbar-nav navbar-right dropdown zero">
-            <!-- <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"
-                    style="height: 50px; width:100%;margin-right: 75px; background: url('<%= current_user.image %>') no-repeat; background-size: 100% 50px;">
-             <%# image_tag current_user.image, height: 50,class: "zero" %>
-            </button> -->
-             <%= current_user.email%><a href="/users/new" class="zero"><%= image_tag current_user.image, height: 50,class: "zero" %></a>
+             <span style="color:#9d9d9d;"><%= current_user.email%></span> <a href="/profile" class="zero"><%= image_tag current_user.image, height: 50,class: "avatar" %></a>
             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background-color:black;">
              <i class="glyphicon glyphicon-menu-hamburger" style="color:white;"></i>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-edit"></span> My Posts</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/profile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/posts/all"><span class="glyphicon glyphicon-edit"></span> My Posts</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="/posts/new"><span class="glyphicon glyphicon-pencil"></span> New Post</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="/posts/random"><span class="glyphicon glyphicon-random"></span> Random Post</a></li>
               <li role="presentation" class="divider"></li>
               <li role="presentation"><%= link_to raw("<span class='glyphicon glyphicon-log-out'></span> Log Out"), session_path("dummy"), method: :delete%></li>
             </ul>
           </div>
-          <!-- <ul class="nav navbar-nav navbar-right">
-            <li class="navebar-right"><a href="/users/new" class="zero"><%= current_user.email%> <%= image_tag current_user.image, height: 50,class: "zero" %></a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-right"><%= link_to raw("<span class='glyphicon glyphicon-log-out'></span>Logout"), session_path("dummy"), method: :delete%></li>
-            <li class="navbar-right"><a href="/posts/new"><span class="glyphicon glyphicon-pencil"></span>New Post</a></li>
-            <li class="navbar-right"><a href="/posts/random"><span class="glyphicon glyphicon-pencil"></span>Random Post</a></li>
-          </ul> -->
         <% end %>
       </div>
     </nav>

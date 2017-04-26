@@ -28,6 +28,13 @@ class PostsController < ApplicationController
     redirect_to post_path(post)
   end
 
+  def profile
+  end
+
+  def all
+    @posts = current_user.posts.all
+  end
+
   private
     # Implement Strong Params
     def post_params

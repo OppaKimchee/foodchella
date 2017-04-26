@@ -20,6 +20,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      redirect_to profile_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    current_user.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Account was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
     # Implement Strong Params
