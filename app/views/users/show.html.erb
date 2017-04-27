@@ -1,9 +1,0 @@
-<h1>Users</h1>
-<ul>
-	<% @users.each do |user| %>
-		<li>First name:<p><%= user.first_name %></p></li>
-		<li>Last name:<p><%= user.last_name %></p></li>
-		<%= image_tag user.image.url %>
-		<%= link_to 'View user', user_path(user) %>
-	<% end %>
-</ul>
