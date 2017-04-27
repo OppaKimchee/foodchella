@@ -6,10 +6,19 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@post) do |post, marker|
+      marker.lat post.latitude
+      marker.lng post.longitude
+    end
   end
 
   def new
     @post = Post.new
+    @posts = Post.all
+    @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
+      marker.lat post.latitude
+      marker.lng post.longitude
+    end
   end
 
   def create
@@ -35,10 +44,29 @@ class PostsController < ApplicationController
     @posts = current_user.posts.all
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      redirect_to post_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to all_path, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+
   private
     # Implement Strong Params
     def post_params
-      params.require(:post).permit(:image,:description)
+      params.require(:post).permit(:image,:description,:latitude, :longitude)
     end
 
 end

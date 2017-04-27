@@ -13,15 +13,34 @@
  *= require_tree .
  *= require_self
  */
-
- body {
-  padding-top: 75px;
+@font-face {
+  font-family: "Chella Type Regular";
+  src: url(/assets/ChellaType-Regular.ttf) format("truetype")
+}
+ *, body {
+  font-family: "Chella Type Regular";
  }
+
+body {
+  padding-top: 75px;
+}
 label{
   width: 7em;
   margin: 0 auto;
   text-align: left;
   display: block
+}
+
+h1{
+   font-family: "Chella Type Regular" !important;
+}
+
+img{
+  border-radius: 10%;
+}
+
+.navbar-brand{
+  font-family: "Chella Type Regular";
 }
 .m-center{
   display: inline-block !important;

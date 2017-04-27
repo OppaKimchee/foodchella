@@ -3,11 +3,16 @@
   <head>
     <title>Foodchella</title>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADO8b-4bSRJh40x8T_Q_kG5baHUgZydHM" async defer></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" async defer></script>
+    <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript' async defer></script> <!-- only if you need custom infoboxes -->
+
+    <%= favicon_link_tag %>
+ </head>
 
   <body>
   	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -30,6 +35,9 @@
               <li role="presentation"><a role="menuitem" tabindex="-1" href="/posts/new"><span class="glyphicon glyphicon-pencil"></span> New Post</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="/posts/random"><span class="glyphicon glyphicon-random"></span> Random Post</a></li>
               <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://oppakimchee.github.io/project1/"><span class="glyphicon glyphicon-usd"></span> Black Jack!</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://shrouded-ocean-86275.herokuapp.com/"><span class="glyphicon glyphicon-info-sign"></span> Jerry's App</a></li>
+              <li role="presentation" class="divider"></li>
               <li role="presentation"><%= link_to raw("<span class='glyphicon glyphicon-log-out'></span> Log Out"), session_path("dummy"), method: :delete%></li>
             </ul>
           </div>
@@ -37,7 +45,5 @@
       </div>
     </nav>
     <%= yield %>
-    <script src=“https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js“></script>
-    <script src=“js/bootstrap.min.js”></script>
   </body>
 </html>

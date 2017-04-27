@@ -1,9 +1,11 @@
 <h1 class="text-center"><%= current_user.email%><%= image_tag current_user.image, class: "avatar", height: 100%></h1>
-<h3 class="text-center"><%= link_to 'Delete Account', current_user, method: :delete, data: { confirm: 'Are you sure? All posts created will also be deleted.' } if current_user%></h3>
-
 <div id="infoForm">
-  <%= @user.first_name %>
-  <button id="editButton">edit</button>
+  <div class="text-center">
+    First Name: <%= @user.first_name %> <br>
+    Last Name: <%= @user.last_name %> <br>
+    Email : <%= @user.email %> <br>
+    <button id="editButton" class="btn btn-warning">edit</button>
+  </div>
 </div>
 
 <br>
@@ -12,9 +14,20 @@
 
 
 <div id="editForm" style="display: none;">
-  <%= render "form" %>
-  <div>
-    <button id="editCancel">cancel</button>
-  </div>
+  <%= render "form" %> <br>
 </div>
+
+<script>
+    $("#editButton").on("click",function(){
+    console.log('edit')
+    $("#editForm").show()
+    $("#infoForm").hide()
+
+  })
+  $("#editCancel").click(function(){
+    console.log('cancel')
+    $("#editForm").hide()
+    $("#infoForm").show()
+  })
+</script>
 

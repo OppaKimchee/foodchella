@@ -14,20 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require underscore
+//= require gmaps/google
 
 // console.log('js loaded')
 
-$(document).ready(function () {
-  console.log('ready')
-  $("#editButton").on("click",function(){
-    console.log('edit')
-    $("#editForm").show()
-    $("#infoForm").hide()
+// $(document).ready(function () {
+//   console.log('ready')
+//   $("#editButton").on("click",function(){
+//     console.log('edit')
+//     $("#editForm").show()
+//     $("#infoForm").hide()
 
-  })
-  $("#editCancel").click(function(){
-    console.log('cancel')
-    $("#editForm").hide()
-    $("#infoForm").show()
-  })
-})
+//   })
+//   $("#editCancel").click(function(){
+//     console.log('cancel')
+//     $("#editForm").hide()
+//     $("#infoForm").show()
+//   })
+// })

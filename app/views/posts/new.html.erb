@@ -11,6 +11,8 @@
       </ul>
     </div>
   <% end %>
+  <%= post.hidden_field :latitude %>
+  <%= post.hidden_field :longitude %>
   <div class="field text-center">
     <%= post.label :image %>
     <%= post.file_field :image, class: "m-center"%>
@@ -18,6 +20,36 @@
   <div class="field text-center">
     <%= post.label :description %>
     <%= post.text_field :description,placeholder: "ex. name of food, restraunt, location etc...",size: 60 %>
+    <div class="actions text-center"><%= post.submit 'Post', class: 'btn btn-info', disabled: !current_user %></div>
+    <div class="text-center" style="width: 250px; margin: 10px auto;">
+      <div class="text-center" id="geolocation" style='width: 250px; height: 250px;'></div>
+    </div>
   </div>
-  <div class="actions text-center"><%= post.submit 'Post', class: 'btn btn-info', disabled: !current_user %>
 <% end %>
+
+<script>
+
+  $('form').on('submit', function() {
+    $('#post_longitude').attr('value', lng);
+    $('#post_latitude').attr('value', lat);
+  });
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+    // be aware chrome >= 50 requires https for geolocation to work
+    if(navigator.geolocation)
+      navigator.geolocation.getCurrentPosition(displayOnMap);
+  });
+
+  var lat, lng;
+
+  function displayOnMap(position){
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
+    var marker = handler.addMarker({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    });
+    handler.map.centerOn(marker);
+  };
+</script>
+
