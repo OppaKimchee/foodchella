@@ -15,7 +15,7 @@
  */
 @font-face {
   font-family: "Chella Type Regular";
-  src: url(/assets/ChellaType-Regular.ttf) format("truetype")
+  src: font-url("ChellaType-Regular.ttf") format("truetype")
 }
  *, body {
   font-family: "Chella Type Regular";
