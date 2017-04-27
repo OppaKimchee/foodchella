@@ -7,7 +7,7 @@
 			<span class="pull-right"><%= link_to raw("<span class='glyphicon glyphicon-thumbs-up'></span>"), post_votes_path(@post), method: :post %> <span class='glyphicon glyphicon-heart'></span><%= @post.votes.count %></span><br>
 			Posted on <%= @post.created_at.strftime("%B %d, %Y @ %I:%M:%S %p") %>
 		</div>
-		<% if @post.user.id == current_user.id %>
+		<% if current_user && @post.user.id == current_user.id %>
 			<button id="editButton" class="btn btn-warning" style="display: block; margin: 0 auto;">edit</button>
 			<div id="editForm" style="display: none;">
 			  <%= render "form" %> <br>
