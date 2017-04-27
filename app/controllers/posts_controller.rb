@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authorize, except: [:index, :show, :random]
+
 
   def index
     @posts = Post.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC')
@@ -56,10 +58,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to all_path, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to all_path, notice: "Post was successfully destroyed."
   end
 
 
