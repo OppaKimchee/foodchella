@@ -29,11 +29,30 @@
   <div class="field text-center">
     <%= user.label :password_confirmation %>
     <%= user.password_field :password_confirmation %>
-  </div>
+  </div><br>
   <div class="field text-center">
     <%= user.label :profile_picture, class: "l-center" %>
-    <%= user.file_field :image, class: "m-center"%>
+    <img id="img_prev" src="#" alt="upload image preview" style="display: none;"> <br>
+    <%= user.file_field :image, class: "m-center",onchange: "readURL(this);"%>
   </div><br>
   <div class="actions text-center"><%= submit_tag "Sign Up!",class: 'btn btn-info'%></div>
   <h5 class="text-center">already have an account? <a href="/login">log in here!</a></h5>
 <% end %>
+
+<script>
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img_prev')
+          .show()
+          .attr('src', e.target.result)
+          .width(250)
+          .height(250);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>

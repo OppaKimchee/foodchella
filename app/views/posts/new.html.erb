@@ -1,4 +1,4 @@
-<h1 class="text-center">New Posts</h1>
+<h1 class="text-center">New Posts</h1><br>
 <p class="text-center" id="notice"><strong><%= notice %></strong></p>
 <%= form_for @post, url: posts_path, html: { multipart: true } do |post| %>
   <% if @post.errors.any? %>
@@ -15,12 +15,13 @@
   <%= post.hidden_field :longitude %>
   <div class="field text-center">
     <%= post.label :image %>
-    <%= post.file_field :image, class: "m-center"%>
-  </div>
+    <img id="img_prev" src="#" alt="upload image preview" style="display: none;"> <br>
+    <%= post.file_field :image, class: "m-center", onchange: "readURL(this);"%>
+  </div><br>
   <div class="field text-center">
     <%= post.label :description %>
-    <%= post.text_field :description,placeholder: "ex. name of food, restraunt, location etc...",size: 60 %>
-    <div class="actions text-center"><%= post.submit 'Post', class: 'btn btn-info', disabled: !current_user %></div>
+    <%= post.text_field :description,placeholder: "ex. name of food, restraunt, location etc...",size: 60%>
+    <div class="actions text-center" style="margin-top:10px;"><%= post.submit 'Post', class: 'btn btn-info', disabled: !current_user %></div>
     <div class="text-center" style="width: 250px; margin: 10px auto;">
       <div class="text-center" id="geolocation" style='width: 250px; height: 250px;'></div>
     </div>
@@ -51,5 +52,20 @@
     });
     handler.map.centerOn(marker);
   };
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img_prev')
+          .show()
+          .attr('src', e.target.result)
+          .width(250)
+          .height(250);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 </script>
 

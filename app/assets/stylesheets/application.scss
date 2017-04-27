@@ -25,10 +25,18 @@ body {
   padding-top: 75px;
 }
 label{
-  width: 7em;
+  width: 20em;
   margin: 0 auto;
   text-align: left;
   display: block
+}
+
+input{
+  width: 20em;
+}
+
+#post_description{
+  width: 50em;
 }
 
 h1{
