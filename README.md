@@ -2,7 +2,7 @@
 ![foodchella](https://i.imgur.com/AXVW6SN.png)
 ## festival of food or journey to diabetes...
 
-### [CLICK ME TO START YOUR JOURNEY!](https://oppakimchee.github.io/project1/)
+### [CLICK ME TO START YOUR JOURNEY!](https://foodchella.herokuapp.com/)
 
  Do you have your tickets to Foodchella? Welcome! This app is about food lovers coming in to join other food lovers and posting dericious (YES DERICIOUS) foods!
  
