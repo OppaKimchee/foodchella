@@ -1,3 +1,21 @@
+<% unless current_user %>
+<div class="subscribe-me" style="background-color:rgba(34,34,34,.9);height: 340px;color:#9d9d9d;">
+    <a href="#close" class="sb-close-btn">x</a>
+    <h3 style="text-align:center; margin: 0 auto;">Log In!</h3>
+    <%= form_tag sessions_path do %>
+      <div class="field text-center">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, params[:email] %>
+      </div>
+      <div class="field text-center">
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </div><br>
+      <div class="actions text-center"><%= submit_tag "Log In",class: 'btn btn-info'%></div>
+       <h5 class="text-center">Don't have an account? <a href="/users/new">Sign up here!</a></h5>
+    <% end %>
+</div>
+<% end %>
 <h1 class="text-center">Top Posts</h1><br><br>
 <p class="text-center" id="notice"><strong><%= notice %></strong></p><br>
 <ul class="text-center">
@@ -24,3 +42,13 @@
 	</div>
 </ul>
 
+<script>
+	$(".subscribe-me").subscribeBetter({
+	  trigger: "onload",       // You can choose which kind of trigger you want for the subscription modal to appear. Available triggers are "atendpage" which will display when the user scrolls to the bottom of the page, "onload" which will display once the page is loaded, and "onidle" which will display after you've scrolled.
+	  animation: "fade",          // You can set the entrance animation here. Available options are "fade", "flyInRight", "flyInLeft", "flyInUp", and "flyInDown". The default value is "fade".
+	  delay: 0,                   // You can set the delay between the trigger and the appearance of the modal window. This works on all triggers. The value should be in milliseconds. The default value is 0.
+	  showOnce: true,             // Toggle this to false if you hate your users. :)
+	  autoClose: true,           // Toggle this to true to automatically close the modal window when the user continue to scroll to make it less intrusive. The default value is false.
+	  scrollableModal: false      //  If the modal window is long and you need the ability for the form to be scrollable, toggle this to true. The default value is false.
+	});
+</script>
