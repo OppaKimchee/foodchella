@@ -1,57 +1,49 @@
-Also in the README.md file:
-A description of the app (screenshot is recommended)
-Explanations of the technologies used.
-Installation/startup instructions:
-Link to your deployed app
-Link to your Trello board
-Unsolved problems, etc
-
 # Welcome to Foodchella!
 ![foodchella](https://i.imgur.com/AXVW6SN.png)
 ## festival of food or journey to diabetes...
 
 ### [CLICK ME TO START YOUR JOURNEY!](https://oppakimchee.github.io/project1/)
 
- In this Game, You as the User will be starting your journey towards your first look at BLACK JACK! (yes there's a space in between black and jack because I said so)
+ Do you have your tickets to Foodchella? Welcome! This app is about food lovers coming in to join other food lovers and posting dericious (YES DERICIOUS) foods!
  
 ----------
-This version of Black Jack was developed by Justin Kim™
+This app was developed by Justin Kim™
 
-- This Black Jack is a very simplified version of Black Jack and a great place to practice your journey to your new found addiction! yay!
-- Black Jack is essentially a card game played by 2 or more players or computer opponents.
-- It can be played together as players vs the "House"(Dealer) or against each other FFA(Free For All) style.
-- this version created by me will be a single player game against the computer.
-- for game play help click the blackjack information logo in the game for instructions on how to play in game.
+![blackjack](https://i.imgur.com/MNKi77M.png)
 
-#### Rules of Black Jack
-![blackjack](images/blackjack.png)
-1. You start the game by adding a ``bet`` amount.
-2. Click the ``deal cards`` button to deal hands out.
-1. You as the Player will be initially dealt two cards as your starting hand.
- - cards ``1 - 10`` will have a value of 1 - 10 receptively.
- - Suit cards or more commonly referred as ``"Face"`` cards have a value of ``10``
- - ``Ace`` cards can have a value of 1 or 11 depending on what you want!
-2. you will be able to see one card in the dealers hand to guess what he has.
-3. You will choose to either to hit or stand if you are close to ``21``
-4. In the case you were dealt ``21 (A,10 or Suit)`` YOU WIN! unless...the dealer also has ``21``...booo...
-5. When you ``win`` a hand you will win ``1.5x`` your bets in the ``pool``
-6. If your lucky enough to get ``Black Jack``, you win ``2x``your pool bet! WOOO!
+- When you first enter Foodchella, you will be greeted by the doorman to register or login (you will not be able to post dericious foods if not!).
+- You are permitted to at least stare at the dericious foods thought and see what exotic locations they arrived from...(mmm doesn't that make you want to register moar?)
+- Once registered or logged in, you gain access to the VIP lounge called the hamburger menu.
+- in the VIP lounge you will be greeted by smooth elevator music DJ, access to awesome games like BLACK JACK 21 by Justin Kim™, or Jerry's Mancala, even AJ's Wheel of Fortune! WOW! (omg why havn't u registered yet?!)
+- You also gain voting privileges on foods to show how much you love someones food and we get to see the top voted foods on the main stage.
+- Once your done with the festivities (because the festivities never end) you may exit through the logout door but don't worry as your credentials are safe and foods in Foodchella never go bad!
+- So make sure you come back and visit again soon!
 
-#### Future Features:
-1. double down
-2. double down on a double on a double down! hah!
-3. make house(dealer) hit on soft 17's(Ace,6) instead of standing on all 17's
+# Future Features:
+1. umm...idk...I finished everything I wanted to do with this app...
+2. maybe a comments section?
+3. how about a Foodchella merchandise store...hehehe...
 
-#### Technologies Used:
+# Technologies Used:
+![](https://i.imgur.com/i19v7Yq.jpg)
+
 1. HTML5
 2. CSS3
 3. Javascript
 4. jQuery
-5. unknown source css card library
+5. Ruby/on Rails
+6. Postgresql
+6. jQuery.subscribe-better addon
+7. Paperclip
+8. Amazon s3
+9. GMaps4Rails
 
-#### credits:
-![GA](images/ga.png)
+# [Trello](https://trello.com/b/NdqISddr/foodchella)
+![](https://media.giphy.com/media/AznFafHLTGgpO/giphy.gif)
 
+# credits:
+![GA](http://static-assets.generalassemb.ly/logos/generalassembly-open-graph.png)
+![](https://i.imgur.com/Lb13xVv.png)
 Instructors:
 
 - Jim
