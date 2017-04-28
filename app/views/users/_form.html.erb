@@ -31,7 +31,8 @@
   </div><br>
   <div class="field text-center">
     <%= user.label :profile_picture, class: "l-center" %>
-    <%= user.file_field :image, class: "m-center"%>
+    <img id="img_prev" src="#" alt="upload image preview" style="display: none;"> <br>
+    <%= user.file_field :image, class: "m-center",onchange: "readURL(this);"%>
   </div><br>
   <div class="actions text-center">
     <%= submit_tag "Update!",class: 'btn btn-success'%>
@@ -39,3 +40,20 @@
     <%= link_to 'Delete Account', current_user, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure? All posts created will also be deleted.' } if current_user %>
   </div>
 <% end %>
+
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img_prev')
+          .show()
+          .attr('src', e.target.result)
+          .width(250)
+          .height(250);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
